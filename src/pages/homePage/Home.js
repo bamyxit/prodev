@@ -20,9 +20,7 @@ const Home = () => {
   const [searchDisplay, setSearchDisplay] = useState("expanded");
   const [statusDisplay, setStatusDisplay] = useState("collapsed");
 
-  useEffect( () => {
-     getPhotos();
-  }, []);
+  useEffect(getPhotos, []);
 
   const getPhotos = async (e) => {
     setLoading(true);
