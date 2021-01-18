@@ -13,7 +13,6 @@ const Home = () => {
 
   const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [searchLoading, setSearchLoading] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [images, setImages] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -21,8 +20,8 @@ const Home = () => {
   const [searchDisplay, setSearchDisplay] = useState("expanded");
   const [statusDisplay, setStatusDisplay] = useState("collapsed");
 
-  useEffect(async () => {
-    await getPhotos();
+  useEffect( () => {
+     getPhotos();
   }, []);
 
   const getPhotos = async (e) => {
@@ -50,7 +49,7 @@ const Home = () => {
       .then(toJson)
       .then((json) => {
         setImages(json.results);
-        if (json.results.length == 0) {
+        if (json.results.length === 0) {
           setSearchText("No Results Found for");
         } else {
           setSearchText("Search Results for");
@@ -61,14 +60,13 @@ const Home = () => {
         alert(error);
       })
       .finally(() => {
-        setSearchLoading(false);
         setLoading(false);
       });
   };
 
   const toggleSearchStatus = () => {
-    setStatusDisplay(statusDisplay == "expanded" ? "collapsed" : "expanded");
-    setSearchDisplay(searchDisplay == "expanded" ? "collapsed" : "expanded");
+    setStatusDisplay(statusDisplay === "expanded" ? "collapsed" : "expanded");
+    setSearchDisplay(searchDisplay === "expanded" ? "collapsed" : "expanded");
   };
   return (
     <div className="container">

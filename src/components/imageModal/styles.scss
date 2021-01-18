@@ -20,6 +20,7 @@
     button {
       @include no_style();
       margin: 10px 8% 0 auto;
+      cursor: pointer;
       svg {
         color: #ffffff;
       }
